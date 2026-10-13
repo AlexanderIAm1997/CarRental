@@ -1,0 +1,283 @@
+.cars_wrapper {
+	display:flex;
+}
+.cars_filter {
+	padding:10px;
+	max-width: 20%;
+	min-width: 200px;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cars_filter_price_input_block{
+	border:1px solid black;
+	display:flex;
+	justify-content: space-between;
+}
+
+
+
+input.cars_filter_price_input::-webkit-outer-spin-button,
+input.cars_filter_price_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input.cars_filter_price_input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.cars_filter_price_input{
+	width : 35%;
+	height: 20px;
+	border-radius: 2px;
+}
+.cars_filter_price_dash {
+width : 10%;
+}
+
+.cars_filter_block{
+	border-top: 1px solid #ECECEC;
+	width: 100%;
+
+}
+.cars_filter_list_element:hover{
+	background-color:rgb(255, 217, 0);
+
+}
+.cars_filter_title_block{
+	border-radius: 2px;
+	padding: 5px 10px 5px 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+.cars_filter_title_block:hover {
+	background-color:rgb(255, 217, 0);
+}
+.cars_filter_title {
+	font-size: 16px;
+}
+.cars_filter_arrow{
+	transform-origin: center;
+	user-select: none; 
+	width: 0;
+	height: 0;
+  	border-left: 5px solid transparent;
+  	border-right: 5px solid transparent;
+  	border-top: 8px solid black;
+}
+.cars_filter_arrow.up{
+	transition: rotate 2s ease; 
+	transform: rotate(180deg);
+}
+
+.cars_filter_list {
+	padding: 0;
+	transition: height 0.2s ease;
+	margin:0;
+	height: 0px;
+	overflow:hidden;
+	user-select: none;
+
+}
+
+.open{
+	height:calc-size(auto, size);
+}
+.cars_filter_list_element{
+	border-radius:2px;
+	margin:0;
+	padding: 5px 10px 5px 10px;
+	list-style: none;
+	display:flex;
+	cursor: pointer;
+	display:flex;
+	align-items: center;
+	border: 1px solid black;
+	border-bottom: none;
+}
+.cars_filter_list_element:last-child {
+	border-bottom: 1px solid black;
+	
+}
+.cars_filter_list_element_checkbox {
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	padding: 0;
+	border-radius: 4px;
+	appearance: none;
+	border: 1px solid black;
+	border-radius: 2px;
+	position: relative;
+   	background-color: white;
+	margin-right: 10px;
+}
+.cars_filter_list_element_checkbox:before {
+	position: absolute;
+	content: "";
+  	width: 15px;
+  	height: 15px;
+	left: 1px;
+	top: 1px;
+  	transform: scale(0);
+  	transition: 50ms transform ease-in-out;
+  	box-shadow: inset 1em 1em rgb(255, 217, 0);
+	transform-origin: bottom left;
+  	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+	user-select: none;
+
+}
+.cars_filter_list_element_checkbox:checked::before {
+  transform: scale(1);
+}
+.cars_filter_list_element_checkbox:checked{
+   /* background-color: #2196f3; */
+}
+
+.cars_filter_list_element_name{
+	margin-right: 10px;
+}
+.cars_filter_list_element_quantity{
+	font-size:14px;
+	color: #908d8d;
+}
+
+.show_result_button {
+  appearance: none;
+  border:none;
+  background-color: #ffae01;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 40px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100px;
+}
+
+.show_result_button:disabled {
+  pointer-events: none;
+}
+
+.show_result_button:hover {
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px; */
+  transform: translateY(-2px);
+
+}
+
+.show_result_button:active {
+  transform: translateY(0);
+}
+/* right Part */
+.cars_output{
+	width: 80%;
+}
+
+.search_block {
+	width : 100%;
+	/* height : 30px; */
+	border:1px solid black;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: left; */
+	/* align-items: center; */
+	padding-left: 10px;
+}
+.search_title {
+	margin: 0;
+}
+.search_input {
+	min-width: 50%;
+	max-width: 80%;
+	padding-left: 10px;
+	height : 30px;
+	border: 1px solid rgba(54, 63, 71, 0.948);
+	border-radius: 3px;
+	outline : none;
+}
+
+.search_input {
+	/* border:none; */
+}
+
+.cars_cards {
+	padding: 20px;
+	display:flex;
+	/* flex-wrap: wrap; */
+	/* gap: 3.5%; */
+	/* justify-content: space-around; */
+	 display: grid;
+  /* Automatically create as many columns as will fit, minimum 200px wide */
+  
+  grid-template-columns: repeat(auto-fill, minmax(250px, 250px)); 
+  gap: 25px;
+  
+}
+
+.cars_card {
+	padding: 10px;
+	flex: 0 0 15em;
+	height: 300px;
+	border:1px solid black;
+	display: flex;
+	flex-direction: column;
+	border-radius: 6px;
+	align-items: flex-start;
+	margin-bottom: 10px;
+	cursor:pointer;
+	transition: scale 0.5s ease;
+}
+.cars_card:hover{
+	transform: scale(1.1);
+	z-index: 1;
+}
+.cards_card_img_wrapper{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.cards_card_img {
+	width: 100%;
+	height: 100px;
+	margin-bottom: 10px;
+	border-radius:10px;
+
+}
+
+.cards_card_brand {
+	margin-bottom: 10px; 
+}
+.cards_card_model {
+	margin-bottom: 10px;
+}
+.cards_card_car_type{
+	margin-bottom: 10px;	
+}
+.cards_card_car_engine_type{
+	margin-bottom: 10px;
+}				
+.cards_card_year_of_production{
+	margin-bottom: 10px;
+}	
+
+.cards_card_price {
+	margin: 0;
+}		

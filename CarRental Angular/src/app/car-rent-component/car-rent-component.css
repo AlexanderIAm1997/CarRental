@@ -1,0 +1,67 @@
+.wrapper {
+	display:flex;
+}
+
+.car_information_block {
+	padding: 10px;
+	width: 65%;
+	border-right: 1px solid black;
+	display: flex;
+	flex-direction: column;
+}
+
+.slider_block {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border: 1px solid red;
+	width : 90%;
+	height:  20em;
+	position: relative;
+}
+
+.control_button {
+	width: 40px;
+	height:70px;
+	position:absolute;
+	cursor: pointer;
+	border:none;
+	outline: none;
+	background-color: orange;
+	opacity: 0.2;
+	border-radius: 5px;
+	transition: opacity 0.1s ease;
+	top: 50%;
+	transform: scale(1) translateY(-50%);
+}
+
+.control_button.left_arrow {
+	left: 0;
+}
+
+.control_button.right_arrow {
+	right: 0;
+}
+
+.control_button:hover {
+	opacity: 1;
+	transform: scale(1.05) translateY(-50%);
+}
+.control_button::after {
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border-top: 5px solid white;
+	border-left: 5px solid white;
+	border-radius: 3px;
+}
+
+.control_button.left_arrow::after {
+	transform: translateX(-40%) translateY(-50%) rotate(-45deg);
+}
+
+.control_button.right_arrow::after {
+	transform: translateX(-60%) translateY(-50%) rotate(135deg);
+}
+

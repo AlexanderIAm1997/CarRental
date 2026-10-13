@@ -1,0 +1,122 @@
+<section class="cars_wrapper">
+	<section class="cars_filter">
+		<div class="cars_filter_price_block">
+			<span class="cars_filter_price_title">Ціна, грн.</span>
+			<div class="cars_filter_price_input_block">
+				<input type="number" class="cars_filter_price_input min_price" >
+				<span class="cars_filter_price_dash"> - </span>
+				<input type="number" class="cars_filter_price_input max_price">
+			</div>
+		</div>
+		<div class="cars_filter_block">
+			<div class="cars_filter_title_block" (click)="toggleDropDown(filterTypes.CarBrand)">
+				<span class="cars_filter_title">
+					Бренди
+				</span>
+				<div [ngClass]="['cars_filter_arrow', this.dropDownsStates.get(filterTypes.CarBrand) === true ? 'up' : '']"></div>
+			</div>
+			<ul [ngClass]="['cars_filter_list' , this.dropDownsStates.get(filterTypes.CarBrand) == true ? 'open' : '']" >
+				@for (carsQuantityGroupedByBrandVM of this.carsQuantityGroupedByBrandsVM; track $index) {
+					<li class="cars_filter_list_element" (click)= "toggleListElement(carsQuantityGroupedByBrandsVM,
+																							carsQuantityGroupedByBrandVM.id,
+																							carsQuantityGroupedByBrandVM.brand,
+																							filterTypes.CarBrand)">
+						<input type="checkbox" [checked]="carsQuantityGroupedByBrandVM.isChosen" class="cars_filter_list_element_checkbox">
+						<div class="cars_filter_list_element_content_wrapper">
+							<span class="cars_filter_list_element_name">  {{carsQuantityGroupedByBrandVM.brand}}</span>
+							<span class="cars_filter_list_element_quantity">({{carsQuantityGroupedByBrandVM.carsQuantity}})</span>
+						</div>
+					</li>
+				}
+			</ul>
+		</div>
+		<div class="cars_filter_block ">
+			<div class="cars_filter_title_block" (click)="toggleDropDown(filterTypes.CarType)">
+				<span class="cars_filter_title">
+					Тип
+				</span>
+				<div [ngClass]="['cars_filter_arrow', this.dropDownsStates.get(filterTypes.CarType) == true ? 'up' : '']"></div>
+			</div>
+			<ul [ngClass]="['cars_filter_list' , this.dropDownsStates.get(filterTypes.CarType) == true ? 'open' : '']" >
+				@for (carsQuantityGroupedByCarTypeVM of this.carsQuantityGroupedByCarTypesVM; track $index) {
+					<li class="cars_filter_list_element" (click)= "toggleListElement(carsQuantityGroupedByCarTypesVM, 
+																							carsQuantityGroupedByCarTypeVM.id, 
+																							carsQuantityGroupedByCarTypeVM.carType,
+																							filterTypes.CarType)">
+						<input type="checkbox" [checked]="carsQuantityGroupedByCarTypeVM.isChosen" class="cars_filter_list_element_checkbox">
+						<div class="cars_filter_list_element_content_wrapper">
+							<span class="cars_filter_list_element_name">  {{carsQuantityGroupedByCarTypeVM.carType}}</span>
+							<span class="cars_filter_list_element_quantity">({{carsQuantityGroupedByCarTypeVM.carsQuantity}})</span>
+						</div>
+					</li>
+				}
+			</ul>
+		</div>
+		<div class="cars_filter_block ">
+			<div class="cars_filter_title_block" (click)="toggleDropDown(filterTypes.CarEngineType)">
+				<span class="cars_filter_title">
+					Тип двигуна
+				</span>
+				<div [ngClass]="['cars_filter_arrow', this.dropDownsStates.get(filterTypes.CarEngineType) == true ? 'up' : '']"></div>
+			</div>
+			<ul [ngClass]="['cars_filter_list' , this.dropDownsStates.get(filterTypes.CarEngineType) == true ? 'open' : '']" >
+				@for (carsQuantityGroupedByCarEngineTypeVM of this.carsQuantityGroupedByCarEngineTypesVM; track $index) {
+					<li class="cars_filter_list_element" (click)= "toggleListElement(carsQuantityGroupedByCarEngineTypesVM, 
+																							carsQuantityGroupedByCarEngineTypeVM.id,
+																							carsQuantityGroupedByCarEngineTypeVM.carEngineType,
+																							filterTypes.CarEngineType)">
+						<input type="checkbox" [checked]="carsQuantityGroupedByCarEngineTypeVM.isChosen" class="cars_filter_list_element_checkbox">
+						<div class="cars_filter_list_element_content_wrapper">
+							<span class="cars_filter_list_element_name">  {{carsQuantityGroupedByCarEngineTypeVM.carEngineType}}</span>
+							<span class="cars_filter_list_element_quantity">({{carsQuantityGroupedByCarEngineTypeVM.carsQuantity}})</span>
+						</div>
+					</li>
+				}
+			</ul>
+		</div>
+		<div class="cars_filter_block ">
+			<div class="cars_filter_title_block" (click)="toggleDropDown(filterTypes.YearOfProduction)">
+				<span class="cars_filter_title">
+					Рік випуску
+				</span>
+				<div  [ngClass]="['cars_filter_arrow', this.dropDownsStates.get(filterTypes.YearOfProduction) == true ? 'up' : '']"></div>
+			</div>
+			<ul [ngClass]="['cars_filter_list' , this.dropDownsStates.get(filterTypes.YearOfProduction) == true ? 'open' : '']" >
+				@for (carsQuantityGroupedByDateOfProductionVM of this.carsQuantityGroupedByDatesOfProductionVM; track $index) {
+					<li class="cars_filter_list_element" (click)= "toggleListElement(carsQuantityGroupedByDatesOfProductionVM, 
+																							carsQuantityGroupedByDateOfProductionVM.id, 
+																							carsQuantityGroupedByDateOfProductionVM.yearOfProduction,
+																							filterTypes.YearOfProduction)">
+						<input type="checkbox" [checked]="carsQuantityGroupedByDateOfProductionVM.isChosen" class="cars_filter_list_element_checkbox">
+						<div class="cars_filter_list_element_content_wrapper">
+							<span class="cars_filter_list_element_name">  {{carsQuantityGroupedByDateOfProductionVM.yearOfProduction}}</span>
+							<span class="cars_filter_list_element_quantity">({{carsQuantityGroupedByDateOfProductionVM.carsQuantity}})</span>
+						</div>
+					</li>
+				}
+			</ul>
+		</div>
+		<button class="show_result_button" (click)="getFilteredData()">Показати</button>
+	</section>
+	<section class="cars_output">
+		<div class="search_block">
+			<input type="text" class="search_input" placeholder="Пошук" (keydown)="getSearchedCars()" [(ngModel)]="searched">
+		</div>
+		<div class="cars_cards">
+			@for (car of this.availableCars; track $index) {
+				<div class="cars_card">
+				<div class="cards_card_img_wrapper">
+					<img class="cards_card_img">
+				</div>	
+				<span class="cards_card_brand">Бренд : {{car.brand}}</span>
+				<span class="cards_card_model">Модель : {{car.model}}</span>
+				<span class="cards_card_car_type">Тип : {{car.carType}}</span>
+				<span class="cards_card_car_engine_type">Тип двигуна : {{car.engineType}}</span>
+				<span class="cards_card_year_of_production">Рік випуску : {{car.dateOfProduction.toString().substring(0, 4)}}</span>
+				<h3 class="cards_card_price">Ціна за добу : {{car.pricePerDay}}</h3>
+			</div>
+			}
+			
+		</div>
+	</section>
+</section>

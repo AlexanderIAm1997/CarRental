@@ -1,0 +1,18 @@
+<header class = "header">
+	<div class="container"> 
+		<div class="logo_wrapper">
+			<img class="logo" src="easydrive_logo.svg">
+		</div>
+		<div class="navigation">
+			<nav class="navigation_list">
+				@for (key of navigationMap.keys(); track $index) 
+				{
+					<a class="navigation_link" [routerLink]="navigationMap.get(key)" routerLinkActive="active">
+						{{key}}
+					</a>
+				}	
+			</nav>
+		</div>
+	</div>
+	
+</header>

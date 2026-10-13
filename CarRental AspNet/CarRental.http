@@ -1,0 +1,63 @@
+@CarRental_HostAddress = http://localhost:5255
+
+GET {{CarRental_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+GET http://localhost:5255/car/cars
+###
+GET http://localhost:5255/car/cars
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYXNkZGEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhc2NhY2Nhc2RhQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3OTEyMDU4NjUsImlzcyI6IllvdXJBcHBJc3N1ZXIiLCJhdWQiOiJZb3VyQXBwQXVkaWVuY2UifQ.Zbd9jHuc4K4cnak8M3SQD1fROFdqQHMo6pjuKYDqkSo
+
+###
+GET http://localhost:5255/car/cars?car_engine_type='Бензиновий'&car_type_ukr='Хетчбек'&price_per_day_min=45&price_per_day_max=47
+
+###
+GET http://localhost:5255/car/cars?car_brand='BMW'&car_brand='Chevrole'
+
+###
+GET http://localhost:5255/car/cars/test
+###
+GET http://localhost:5255/user/all
+
+###
+POST http://localhost:5255/auth/authentication
+Content-Type: application/json
+
+{
+	"login" : "ascaccasda@gmail.com",
+	"password": "123213123Av"
+}
+
+###
+POST http://localhost:5255/auth/registration
+Content-Type: application/json
+
+{
+	"FirstName":"asdda",
+	"LastName" : "asdsad",
+	"Age": 21,
+	"Email": "ascaccasda@gmail.com",  
+	"Phone" :"+380664745563",
+	"Password" : "123213123Av"
+}
+###
+
+POST  http://localhost:5255/auth/refresh
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYXNkZGEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhc2NhY2Nhc2RhQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3OTEyMTQ4MTIsImlzcyI6IllvdXJBcHBJc3N1ZXIiLCJhdWQiOiJZb3VyQXBwQXVkaWVuY2UifQ.oln5kc_jBHrfJ0fkrd_-_Vz6sA4GrCJGzaRYXAaAGEM
+Cookie: refreshToken=ebqf1sI0eostA6i2vN55CV2V1eYHNEcgRJJlI104pDU=
+
+###
+GET http://localhost:5255/car/cars/car_quantity_grouped_by_brands
+
+
+###
+GET http://localhost:5255/car/cars/car_quantity_grouped_by_car_type
+
+###
+GET http://localhost:5255/car/cars/car_quantity_grouped_by_car_engine_type
+
+###
+GET http://localhost:5255/car/cars/car_quantity_grouped_by_date_of_production
+
+
